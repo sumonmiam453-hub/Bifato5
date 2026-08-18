@@ -1,0 +1,42 @@
+awk '/\/\/ -------------------------------------------------------------/{
+    if (c == 1 && !inserted) {
+        print "    suspend fun updateProfile(name: String, bio: String, livesIn: String, work: String): Result<Unit> {"
+        print "        return try {"
+        print "            firestore.collection(\"users\").document(getCurrentUserId())"
+        print "                .update(mapOf("
+        print "                    \"name\" to name,"
+        print "                    \"bio\" to bio,"
+        print "                    \"livesIn\" to livesIn,"
+        print "                    \"work\" to work"
+        print "                )).await()"
+        print "            Result.success(Unit)"
+        print "        } catch (e: Exception) {"
+        print "            Result.failure(e)"
+        print "        }"
+        print "    }"
+        print ""
+        print "    suspend fun updateAvatar(avatarUrl: String): Result<Unit> {"
+        print "        return try {"
+        print "            firestore.collection(\"users\").document(getCurrentUserId())"
+        print "                .update(\"avatarUrl\", avatarUrl).await()"
+        print "            Result.success(Unit)"
+        print "        } catch (e: Exception) {"
+        print "            Result.failure(e)"
+        print "        }"
+        print "    }"
+        print ""
+        print "    suspend fun updateCover(coverUrl: String): Result<Unit> {"
+        print "        return try {"
+        print "            firestore.collection(\"users\").document(getCurrentUserId())"
+        print "                .update(\"coverUrl\", coverUrl).await()"
+        print "            Result.success(Unit)"
+        print "        } catch (e: Exception) {"
+        print "            Result.failure(e)"
+        print "        }"
+        print "    }"
+        print ""
+        inserted = 1
+    }
+    c++
+}
+{print}' app/src/main/java/com/example/data/FirebaseManager.kt > temp.kt && mv temp.kt app/src/main/java/com/example/data/FirebaseManager.kt

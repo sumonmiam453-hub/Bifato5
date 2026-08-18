@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "39104622638",
+    "project_id": "beka-lafa",
+    "storage_bucket": "beka-lafa.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:39104622638:android:5c16f766cf71063a296fbf",
+        "android_client_info": {
+          "package_name": "com.beka.lafa"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCesAt_i1p4L9K4TDDd7e44KpNqjFNx4IY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
